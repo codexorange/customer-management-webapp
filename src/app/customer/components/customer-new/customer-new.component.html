@@ -1,0 +1,43 @@
+<div class="container">
+  <h1 class="font-secondary">Clientes</h1>
+  <form [formGroup]=" form" (ngSubmit)="saveCustomer($event)" class="mt-5">
+    <mat-card>
+      <mat-card-header class="mb-5">
+        <mat-card-title class="font-secondary m-0">Agregar nuevo cliente</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="mx-4">
+        <div class="row">
+          <div class="col-xs">
+            <mat-form-field class="w-1/2">
+              <input placeholder="Nombre" formControlName="firstName" matInput type="text">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs">
+            <mat-form-field class="w-1/2">
+              <input placeholder="Apellidos" formControlName="lastName" matInput type="text">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs">
+            <mat-form-field class="w-1/2 example-full-width">
+              <mat-label>Fecha de nacimiento</mat-label>
+              <input matInput [max]="maxDate" [matDatepicker]="picker" formControlName="birthDate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="mx-5 my-5">
+          <button [disabled]="form.invalid" mat-raised-button color="primary" type="submit"
+            class="font-secondary font-bold">Guardar</button>
+          <a routerLink="/customers" mat-raised-button class="font-secondary font-bold">Cancelar</a>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

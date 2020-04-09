@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=DM+Sans");
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #f7fafc;
+}
+
+.container {
+  width: 1024px;
+  margin: 3rem auto;
+}
+
+.font-secondary {
+  font-family: "DM Sans" !important;
+}
