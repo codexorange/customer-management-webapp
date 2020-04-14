@@ -15,6 +15,8 @@ export class CustomerListComponent implements OnInit {
     'lastName',
     'age',
     'birthDate',
+    'expectedDeathDate',
+    'createdAt',
   ];
 
   constructor(private customerService: CustomerService) {}

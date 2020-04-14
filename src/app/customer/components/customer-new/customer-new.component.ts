@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class CustomerNewComponent implements OnInit {
   form: FormGroup;
   maxDate: Date;
+  age: number;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,13 +24,19 @@ export class CustomerNewComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  updateAge(date: string): void {
+    const now = new Date();
+    const mSeconds = now.getTime() - new Date(date).getTime();
+    this.age = Math.floor(mSeconds / 31536000000);
+  }
+
   saveCustomer(event: Event): void {
     event.preventDefault();
     if (this.form.valid) {
       const customer = this.form.value;
+      customer.age = this.age;
       customer.createdAt = new Date().toISOString();
       this.customerService.createCustomer(customer).subscribe((c) => {
-        console.log(c);
         this.router.navigate(['./customers']);
       });
     }
@@ -40,6 +47,7 @@ export class CustomerNewComponent implements OnInit {
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       birthDate: ['', [Validators.required]],
+      age: [''],
     });
   }
 }

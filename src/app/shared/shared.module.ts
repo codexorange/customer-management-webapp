@@ -4,11 +4,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
-import { AgePipe } from './pipes/age/age.pipe';
+import { DateAgoPipe } from './pipes/age/age.pipe';
+import { DeathDatePipe } from './pipes/deat-date/death-date.pipe';
 
 @NgModule({
-  declarations: [AgePipe, HeaderComponent, FooterComponent],
-  exports: [AgePipe, HeaderComponent, FooterComponent],
+  declarations: [DateAgoPipe, DeathDatePipe, HeaderComponent, FooterComponent],
+  exports: [DateAgoPipe, DeathDatePipe, HeaderComponent, FooterComponent],
   imports: [CommonModule, RouterModule, MaterialModule],
 })
 export class SharedModule {}

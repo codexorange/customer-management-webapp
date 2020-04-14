@@ -19,9 +19,9 @@ export class CustomerService {
     return this.http.post(`${environment.url_api}/customers`, customer);
   }
 
-  getMeanAge() {
+  getMetadata() {
     return this.http.get<CustomerMetadata>(
-      `${environment.url_api}/customers/mean`
+      `${environment.url_api}/customers/metadata`
     );
   }
 }

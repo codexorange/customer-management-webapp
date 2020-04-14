@@ -4,5 +4,6 @@ export interface Customer {
   firstName: string;
   lastName: string;
   birthDate: string;
+  age: number;
   createdAt: string;
 }

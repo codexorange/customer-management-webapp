@@ -1,8 +1,4 @@
-<table
-  mat-table
-  [dataSource]="customers"
-  class="mat-elevation-z8 w-full mt-5 mb-5"
->
+<table mat-table [dataSource]="customers" class="mat-elevation-z8 w-full mt-5 mb-5">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>No.</th>
     <td mat-cell *matCellDef="let customer; let i = index">{{ i + 1 }}</td>
@@ -10,23 +6,37 @@
 
   <ng-container matColumnDef="firstName">
     <th mat-header-cell *matHeaderCellDef>Nombre</th>
-    <td mat-cell *matCellDef="let customer">{{ customer.firstName }}</td>
+    <td mat-cell *matCellDef="let customer">{{ customer.firstName | titlecase }}</td>
   </ng-container>
 
   <ng-container matColumnDef="lastName">
     <th mat-header-cell *matHeaderCellDef>Apellido</th>
-    <td mat-cell *matCellDef="let customer">{{ customer.lastName }}</td>
+    <td mat-cell *matCellDef="let customer">{{ customer.lastName | titlecase }}</td>
   </ng-container>
 
   <ng-container matColumnDef="age">
     <th mat-header-cell *matHeaderCellDef>Edad</th>
-    <td mat-cell *matCellDef="let customer">{{ customer.birthDate | age }}</td>
+    <td mat-cell *matCellDef="let customer">{{ customer.age }}</td>
   </ng-container>
 
   <ng-container matColumnDef="birthDate">
     <th mat-header-cell *matHeaderCellDef>Fecha de nacimiento</th>
     <td mat-cell *matCellDef="let customer">
       {{ customer.birthDate | date: "mediumDate" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="expectedDeathDate">
+    <th mat-header-cell *matHeaderCellDef>Fecha de probable de muerte</th>
+    <td mat-cell *matCellDef="let customer">
+      {{ customer.birthDate | deathDate | date:"MMM, yyyy" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="createdAt">
+    <th mat-header-cell *matHeaderCellDef>Registrado</th>
+    <td mat-cell *matCellDef="let customer">
+      {{ customer.createdAt | dateAgo }}
     </td>
   </ng-container>
 

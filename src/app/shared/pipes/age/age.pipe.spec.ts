@@ -1,8 +1,8 @@
-import { AgePipe } from './age.pipe';
+import { DateAgoPipe } from './age.pipe';
 
-describe('AgePipe', () => {
+describe('DateAgoPipe', () => {
   it('create an instance', () => {
-    const pipe = new AgePipe();
+    const pipe = new DateAgoPipe();
     expect(pipe).toBeTruthy();
   });
 });

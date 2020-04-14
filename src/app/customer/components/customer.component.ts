@@ -13,11 +13,11 @@ export class CustomerComponent implements OnInit {
   constructor(private customerService: CustomerService) {}
 
   ngOnInit(): void {
-    this.fetchAgeData();
+    this.fetchMetadata();
   }
 
-  fetchAgeData(): void {
-    this.customerService.getMeanAge().subscribe((metadata) => {
+  fetchMetadata(): void {
+    this.customerService.getMetadata().subscribe((metadata) => {
       this.metadata = metadata;
     });
   }
